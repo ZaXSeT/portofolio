@@ -3,7 +3,15 @@ import { useState } from 'react'
 // @ts-ignore - JSX component
 import FlowingMenu from './FlowingMenu'
 
-const menuItems = [
+type MenuItem = {
+    name: string
+    link: string
+    text: string
+    image: string
+    sectionId: string | null
+}
+
+const menuItems: MenuItem[] = [
     {
         name: 'Home',
         link: '#home',
@@ -68,6 +76,7 @@ export default function Navbar() {
                 className="hidden md:block sticky top-0 left-0 right-0 z-50 bg-black shadow-lg"
             >
                 <div className="h-auto max-h-[50vh]">
+                    {/* @ts-ignore */}
                     <FlowingMenu items={menuItems} onClick={handleClick} />
                 </div>
             </motion.div>
